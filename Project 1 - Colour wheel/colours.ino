@@ -2,12 +2,12 @@
 
 #include <Adafruit_NeoPixel.h>
 
-#define LED_PIN     6
-#define NUM_LEDS    7
+#define LED_PIN     6 //what pin i use like comunication port
+#define NUM_LEDS    7 //number of LED
 
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUM_LEDS, LED_PIN, NEO_GRB + NEO_KHZ800);
 
-// Deklarace funkce
+// function declaration
 uint32_t wheel(byte wheelPos);
 
 void setup() {
@@ -17,19 +17,20 @@ void setup() {
 void loop() {
   static uint8_t hue = 0;
   for (int i = 0; i < NUM_LEDS; i++) {
-    if (i != 0) {  // přeskakuje první LED diodu
+    if (i != 0) {  // skip first LED
       uint32_t color = wheel((i * 256 / NUM_LEDS + hue) % 256);
-      pixels.setPixelColor(i, color); // nastavení barvy
+      pixels.setPixelColor(i, color); // set color
     }
   }
-  pixels.setBrightness(2);
+  pixels.setBrightness(2); //minimum 1 maximum 255
 
   pixels.show();
   delay(5);
   hue++;
 }
 
-// Definice funkce
+// rotating colors
+// function definition
 uint32_t wheel(byte wheelPos) {
   if (wheelPos < 85) {
     return pixels.Color(wheelPos * 3, 255 - wheelPos * 3, 0);
