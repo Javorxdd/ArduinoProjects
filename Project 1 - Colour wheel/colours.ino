@@ -1,3 +1,5 @@
+// You can use this only by using Arduino IDE
+
 #include <Adafruit_NeoPixel.h>
 
 #define LED_PIN     6
