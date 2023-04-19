@@ -1,1 +1,1 @@
-This code is for the flowers to grow better.
+This code is for the flowers to grows better. I'm using special type of pink color and brightness is set to 2. You can change line 3,4,5. Line 3 defines PIN, where is connected data bus. Line 4 defines number of LED's. Line 5 defines brightness.
