@@ -1,7 +1,7 @@
 #include <DHT.h>
 
 #define DHT_PIN 9
-const int rainSensorPin = 7;  // Připojte výstupní pin komparátoru LM393 ke digitálnímu pinu 2 na Arduinu
+const int rainSensorPin = 7;  // Připojte výstupní pin komparátoru LM393 ke digitálnímu pinu 7 na Arduinu
 int previousRainValue = LOW;  // Předchozí hodnota detekce deště
 DHT dht(DHT_PIN, DHT11);
 
