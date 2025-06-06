@@ -1,6 +1,10 @@
 # PushGame
 
-_Česká verze se nachází pod anglickou_
+> [!IMPORTANT]
+> Česká verze se nachází pod anglickou
+
+> [!NOTE]
+> Photos below the text
 
 ## Hey! Hey!
 
@@ -31,7 +35,11 @@ Instagram: [@javorovotoje](https://instagram.com/javorovotoje)
 > [!CAUTION]
 > The author assumes no liability if injury or fire occurs as a result of improper handling!
 
+
 ## Ahoj!
+
+> [!NOTE]
+> Fotografie pod textem
 
 vytvořil jsem tuto hru třeba právě pro tebe! Jednoduchá hra, kde hráč musí co nejdříve 60x (záleží na tvém nastavení) kliknout tlačítkem a postupně se mu během jeho skóre budou rozsvícet takové LED "žárovky". Pokud bude co nejrychlejší, zahraje mu za odměnu fanfára, nebo mu klidně můžeš nějakou věnovat. Vše, co k této hře potřebuješ máš v tomto repozitáři. Na PCB máš popsané vše, co kam připojit. Výběr součástek je na tobě, ale doporučuji zanechat ty, které jsem ti vybral. Jediné, co musíš udělat je vypočítat si rezistor pro LED panel, který závisí na tvé zvolené barvě a napájecím napětí.
 
@@ -58,3 +66,8 @@ Instagramu: [@javorovotoje](https://instagram.com/javorovotoje)
 
 > [!CAUTION]
 > Autor nenese žádnou odpovědnost, pokud by důsledkem neodborného zacházení došlo k úrazu nebo požáru!
+
+![Fotografie po vyleptání.](https://github.com/Javorxdd/ArduinoProjects/blob/main/PushGame/IMG_6202.JPEG)
+![Fotografie při osazování](https://github.com/Javorxdd/ArduinoProjects/blob/main/PushGame/IMG_6206.JPEG)
+![Fotografie při dokončování](https://github.com/Javorxdd/ArduinoProjects/blob/main/PushGame/IMG_6216.JPEG)
+![Hotový výrobek.](https://github.com/Javorxdd/ArduinoProjects/blob/main/PushGame/IMG_6218.JPEG)
