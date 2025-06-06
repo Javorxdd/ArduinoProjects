@@ -16,8 +16,8 @@ The parts list for the main board:
 7. 1x 330n capacitor (can be replaced by a 470n capacitor)
 
 Parts list for the LED panel:
-4x LED diode
-1x resistor (value depends on the power supply voltage you choose and the color of the LED)
+1. 4x LED diode
+2. 1x resistor (value depends on the power supply voltage you choose and the color of the LED)
 
 and then of course some wiring :)
 
@@ -45,8 +45,8 @@ List součástek pro hlavní desku:
 7. 1x 330n kondenzátor (může být nahrazen kondenzátorem 470n)
 
 List součástek pro LED panel:
-4x LED dioda
-1x rezistor (hodnota závisí na tebou zvoleným napájecím napětí a barvou LED diody)
+1. 4x LED dioda
+2. 1x rezistor (hodnota závisí na tebou zvoleným napájecím napětí a barvou LED diody)
 
 a poté samozřejmě nějaká kabeláž :)
 
