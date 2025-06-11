@@ -24,6 +24,8 @@ const int THIRD_LIGHT = 60;
 // --- Game variable ---
 int scores[NUM_PLAYERS] = {0, 0, 0};
 int lastButtonStates[NUM_PLAYERS] = {LOW, LOW, LOW};
+unsigned long lastDebounceTime[NUM_PLAYERS] = {0, 0, 0};
+const unsigned long DEBOUNCE_DELAY = 50;
 
 bool gameOver = false;
 int winner = -1;
@@ -52,30 +54,39 @@ void setup() {
 
   allLedsOff();
 
-  Serial.println("Game is ready to start! Final score: 60 points.");
+  Serial.println("Game is ready to start! Final score: " + String(WINNING_SCORE) + " points.");
 }
 
 void loop() {
   if (!gameOver) {
     for (int i = 0; i < NUM_PLAYERS; i++) {
-      int currentButtonState = digitalRead(BUTTON_PINS[i]);
 
-      if (currentButtonState == HIGH && lastButtonStates[i] == LOW) {
-        scores[i]++;
-        Serial.print("Player ");
-        Serial.print(i + 1);
-        Serial.print(" has score: ");
-        Serial.println(scores[i]);
+      int currentReading = digitalRead(BUTTON_PINS[i]);
 
-        updatePlayerLeds(i);
+      if ((millis() - lastDebounceTime[i]) > DEBOUNCE_DELAY) {
 
-        if (scores[i] >= WINNING_SCORE) {
-          gameOver = true;
-          winner = i;
-          break;
+        if (currentReading != lastButtonStates[i]) {
+          lastDebounceTime[i] = millis();
+          lastButtonStates[i] = currentReading;
+  
+          if (lastButtonStates[i] == LOW) {
+            
+            scores[i]++;
+            Serial.print("Player ");
+            Serial.print(i + 1);
+            Serial.print(" has score: ");
+            Serial.println(scores[i]);
+    
+            updatePlayerLeds(i);
+    
+            if (scores[i] >= WINNING_SCORE) {
+              gameOver = true;
+              winner = i;
+              break;
+            }
+          }
         }
       }
-      lastButtonStates[i] = currentButtonState;
     }
   }
   else {
@@ -106,6 +117,7 @@ void resetGame() {
   // Erasing all score
   for (int i = 0; i < NUM_PLAYERS; i++) {
     scores[i] = 0;
+    lastButtonStates[i] = HIGH;
   }
   
   // Turn off all LED's
@@ -122,7 +134,7 @@ void updatePlayerLeds(int playerIndex) {
   int score = scores[playerIndex];
   const int* pins = LIGHT_PINS[playerIndex];
 
-  // Používám vaše nové hodnoty milníků
+  // We are using game variables
   digitalWrite(pins[0], (score >= FIRST_LIGHT) ? HIGH : LOW);
   digitalWrite(pins[1], (score >= SECOND_LIGHT) ? HIGH : LOW);
   digitalWrite(pins[2], (score >= THIRD_LIGHT) ? HIGH : LOW);
